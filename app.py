@@ -15,6 +15,7 @@ METADATA_FILE = os.path.join(REPORT_FOLDER, "metadata.json")
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 os.makedirs(REPORT_FOLDER, exist_ok=True)
 
+
 app = Flask(__name__, static_folder="static", template_folder="templates")
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
