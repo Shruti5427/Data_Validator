@@ -3,7 +3,7 @@
   "configurations": [
     {
       "name": "Debug Data Validator (Flask)",
-      "type": "python",
+      "type": "debugpy",
       "request": "launch",
       "program": "${workspaceFolder}/run.py",
       "console": "integratedTerminal",
