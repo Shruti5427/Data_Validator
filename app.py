@@ -113,7 +113,7 @@ def simple_upload():
     records.insert(0, record)
     save_metadata(records)
 
-   # 🟢 Build dynamic HTML with inline error summary
+   #  Build dynamic HTML with inline error summary
     error_html = ""
     errors = validation_result.get("errors", [])
     if errors:
