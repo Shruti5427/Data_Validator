@@ -1,0 +1,893 @@
+[
+  {
+    "id": "aa3ccec4",
+    "original_filename": "Weekly Schedule Template.xlsx",
+    "uploaded_at": "2025-10-06T16:10:54.574492Z",
+    "report_path": "C:\\Users\\shrut\\Desktop\\Data_Validator\\reports\\report_aa3ccec4.xlsx",
+    "clean_path": "C:\\Users\\shrut\\Desktop\\Data_Validator\\reports\\clean_aa3ccec4.xlsx",
+    "rules": [
+      "name",
+      "email",
+      "phone",
+      "marks",
+      "duplicates"
+    ],
+    "summary": {
+      "total": 16,
+      "valid": 16,
+      "invalid": 0
+    },
+    "errors": []
+  },
+  {
+    "id": "36f2d5dd",
+    "original_filename": "Activity_ Obtaining and Scrubbing Data - Example Customer Data .xlsx",
+    "uploaded_at": "2025-10-06T16:05:04.810747Z",
+    "report_path": "C:\\Users\\shrut\\Desktop\\Data_Validator\\reports\\report_36f2d5dd.xlsx",
+    "clean_path": "C:\\Users\\shrut\\Desktop\\Data_Validator\\reports\\clean_36f2d5dd.xlsx",
+    "rules": [
+      "name",
+      "email",
+      "phone",
+      "marks",
+      "duplicates"
+    ],
+    "summary": {
+      "total": 10,
+      "valid": 8,
+      "invalid": 2
+    },
+    "errors": [
+      {
+        "Row": 5,
+        "Errors": "Duplicate row",
+        "Data": {
+          "customer_id": 102537,
+          "order_number": 1025371,
+          "customer_zip": 23456,
+          "item_sku": "I3K8J7H9",
+          "item_category": "Dresses",
+          "item_cost": 129.99
+        }
+      },
+      {
+        "Row": 11,
+        "Errors": "Duplicate row",
+        "Data": {
+          "customer_id": 197528,
+          "order_number": 1975281,
+          "customer_zip": 56789,
+          "item_sku": "W5S2F7D3",
+          "item_category": "Outerwear",
+          "item_cost": 149.99
+        }
+      }
+    ]
+  },
+  {
+    "id": "8d38fa4a",
+    "original_filename": "student_dataset (1).csv",
+    "uploaded_at": "2025-10-05T17:37:45.235083Z",
+    "report_path": "C:\\Users\\shrut\\Desktop\\Data_Validator\\reports\\report_8d38fa4a.xlsx",
+    "clean_path": "C:\\Users\\shrut\\Desktop\\Data_Validator\\reports\\clean_8d38fa4a.xlsx",
+    "rules": [
+      "name",
+      "email",
+      "phone",
+      "marks",
+      "duplicates"
+    ],
+    "summary": {
+      "total": 100,
+      "valid": 83,
+      "invalid": 17
+    },
+    "errors": [
+      {
+        "Row": 7,
+        "Errors": "Invalid Phone",
+        "Data": {
+          "ID": 40,
+          "Name": "Student 40",
+          "Email": "student40@example.com",
+          "Phone": "abcd",
+          "Marks": 69
+        }
+      },
+      {
+        "Row": 10,
+        "Errors": "Invalid Phone",
+        "Data": {
+          "ID": 11,
+          "Name": "Student 11",
+          "Email": "student11@example.com",
+          "Phone": "123",
+          "Marks": 41
+        }
+      },
+      {
+        "Row": 13,
+        "Errors": "Invalid Phone",
+        "Data": {
+          "ID": 31,
+          "Name": "Student 31",
+          "Email": "student31@example.com",
+          "Phone": NaN,
+          "Marks": 58
+        }
+      },
+      {
+        "Row": 18,
+        "Errors": "Invalid Email",
+        "Data": {
+          "ID": 77,
+          "Name": "Student 77",
+          "Email": "invalidemail",
+          "Phone": "9876592240",
+          "Marks": 50
+        }
+      },
+      {
+        "Row": 31,
+        "Errors": "Invalid Phone",
+        "Data": {
+          "ID": 73,
+          "Name": "Student 73",
+          "Email": "student73@example.com",
+          "Phone": "phone",
+          "Marks": 72
+        }
+      },
+      {
+        "Row": 36,
+        "Errors": "Invalid Phone",
+        "Data": {
+          "ID": 94,
+          "Name": "Student 94",
+          "Email": "student94@example.com",
+          "Phone": "0000",
+          "Marks": 95
+        }
+      },
+      {
+        "Row": 44,
+        "Errors": "Invalid Phone",
+        "Data": {
+          "ID": 8,
+          "Name": "Student 8",
+          "Email": "student8@example.com",
+          "Phone": "999",
+          "Marks": 41
+        }
+      },
+      {
+        "Row": 45,
+        "Errors": "Duplicate row",
+        "Data": {
+          "ID": 1,
+          "Name": NaN,
+          "Email": "student1@example.com",
+          "Phone": "9876593810",
+          "Marks": 47
+        }
+      },
+      {
+        "Row": 50,
+        "Errors": "Invalid Email",
+        "Data": {
+          "ID": 63,
+          "Name": "Student 63",
+          "Email": "noatsign.com",
+          "Phone": "9876595909",
+          "Marks": 71
+        }
+      },
+      {
+        "Row": 63,
+        "Errors": "Duplicate row",
+        "Data": {
+          "ID": 5,
+          "Name": "Student 5",
+          "Email": "student5@example.com",
+          "Phone": "9876523434",
+          "Marks": 83
+        }
+      },
+      {
+        "Row": 68,
+        "Errors": "Invalid Phone",
+        "Data": {
+          "ID": 47,
+          "Name": "Student 47",
+          "Email": "student47@example.com",
+          "Phone": "12345",
+          "Marks": 78
+        }
+      },
+      {
+        "Row": 71,
+        "Errors": "Invalid Email",
+        "Data": {
+          "ID": 3,
+          "Name": "Student 3",
+          "Email": "abc@@abc",
+          "Phone": "9876546048",
+          "Marks": 55
+        }
+      },
+      {
+        "Row": 73,
+        "Errors": "Invalid Email",
+        "Data": {
+          "ID": 42,
+          "Name": "Student 42",
+          "Email": "test@",
+          "Phone": "9876557819",
+          "Marks": 50
+        }
+      },
+      {
+        "Row": 76,
+        "Errors": "Duplicate row",
+        "Data": {
+          "ID": 4,
+          "Name": "Student 4",
+          "Email": "student4@example.com",
+          "Phone": "9876539256",
+          "Marks": 48
+        }
+      },
+      {
+        "Row": 86,
+        "Errors": "Duplicate row",
+        "Data": {
+          "ID": 2,
+          "Name": "Student 2",
+          "Email": "student2@example.com",
+          "Phone": "9876513278",
+          "Marks": 87
+        }
+      },
+      {
+        "Row": 89,
+        "Errors": "Duplicate row, Invalid Email",
+        "Data": {
+          "ID": 3,
+          "Name": "Student 3",
+          "Email": "abc@@abc",
+          "Phone": "9876546048",
+          "Marks": 55
+        }
+      },
+      {
+        "Row": 99,
+        "Errors": "Invalid Email",
+        "Data": {
+          "ID": 15,
+          "Name": "Student 15",
+          "Email": "email.com",
+          "Phone": "9876538893",
+          "Marks": 68
+        }
+      }
+    ]
+  },
+  {
+    "id": "c404ee02",
+    "original_filename": "student_dataset (1).csv",
+    "uploaded_at": "2025-10-05T17:35:59.568685Z",
+    "report_path": "C:\\Users\\shrut\\Desktop\\Data_Validator\\reports\\report_c404ee02.xlsx",
+    "clean_path": "C:\\Users\\shrut\\Desktop\\Data_Validator\\reports\\clean_c404ee02.xlsx",
+    "rules": [
+      "name",
+      "email",
+      "phone",
+      "marks",
+      "duplicates"
+    ],
+    "summary": {
+      "total": 100,
+      "valid": 83,
+      "invalid": 17
+    },
+    "errors": [
+      {
+        "Row": 7,
+        "Errors": "Invalid Phone",
+        "Data": {
+          "ID": 40,
+          "Name": "Student 40",
+          "Email": "student40@example.com",
+          "Phone": "abcd",
+          "Marks": 69
+        }
+      },
+      {
+        "Row": 10,
+        "Errors": "Invalid Phone",
+        "Data": {
+          "ID": 11,
+          "Name": "Student 11",
+          "Email": "student11@example.com",
+          "Phone": "123",
+          "Marks": 41
+        }
+      },
+      {
+        "Row": 13,
+        "Errors": "Invalid Phone",
+        "Data": {
+          "ID": 31,
+          "Name": "Student 31",
+          "Email": "student31@example.com",
+          "Phone": NaN,
+          "Marks": 58
+        }
+      },
+      {
+        "Row": 18,
+        "Errors": "Invalid Email",
+        "Data": {
+          "ID": 77,
+          "Name": "Student 77",
+          "Email": "invalidemail",
+          "Phone": "9876592240",
+          "Marks": 50
+        }
+      },
+      {
+        "Row": 31,
+        "Errors": "Invalid Phone",
+        "Data": {
+          "ID": 73,
+          "Name": "Student 73",
+          "Email": "student73@example.com",
+          "Phone": "phone",
+          "Marks": 72
+        }
+      },
+      {
+        "Row": 36,
+        "Errors": "Invalid Phone",
+        "Data": {
+          "ID": 94,
+          "Name": "Student 94",
+          "Email": "student94@example.com",
+          "Phone": "0000",
+          "Marks": 95
+        }
+      },
+      {
+        "Row": 44,
+        "Errors": "Invalid Phone",
+        "Data": {
+          "ID": 8,
+          "Name": "Student 8",
+          "Email": "student8@example.com",
+          "Phone": "999",
+          "Marks": 41
+        }
+      },
+      {
+        "Row": 45,
+        "Errors": "Duplicate row",
+        "Data": {
+          "ID": 1,
+          "Name": NaN,
+          "Email": "student1@example.com",
+          "Phone": "9876593810",
+          "Marks": 47
+        }
+      },
+      {
+        "Row": 50,
+        "Errors": "Invalid Email",
+        "Data": {
+          "ID": 63,
+          "Name": "Student 63",
+          "Email": "noatsign.com",
+          "Phone": "9876595909",
+          "Marks": 71
+        }
+      },
+      {
+        "Row": 63,
+        "Errors": "Duplicate row",
+        "Data": {
+          "ID": 5,
+          "Name": "Student 5",
+          "Email": "student5@example.com",
+          "Phone": "9876523434",
+          "Marks": 83
+        }
+      },
+      {
+        "Row": 68,
+        "Errors": "Invalid Phone",
+        "Data": {
+          "ID": 47,
+          "Name": "Student 47",
+          "Email": "student47@example.com",
+          "Phone": "12345",
+          "Marks": 78
+        }
+      },
+      {
+        "Row": 71,
+        "Errors": "Invalid Email",
+        "Data": {
+          "ID": 3,
+          "Name": "Student 3",
+          "Email": "abc@@abc",
+          "Phone": "9876546048",
+          "Marks": 55
+        }
+      },
+      {
+        "Row": 73,
+        "Errors": "Invalid Email",
+        "Data": {
+          "ID": 42,
+          "Name": "Student 42",
+          "Email": "test@",
+          "Phone": "9876557819",
+          "Marks": 50
+        }
+      },
+      {
+        "Row": 76,
+        "Errors": "Duplicate row",
+        "Data": {
+          "ID": 4,
+          "Name": "Student 4",
+          "Email": "student4@example.com",
+          "Phone": "9876539256",
+          "Marks": 48
+        }
+      },
+      {
+        "Row": 86,
+        "Errors": "Duplicate row",
+        "Data": {
+          "ID": 2,
+          "Name": "Student 2",
+          "Email": "student2@example.com",
+          "Phone": "9876513278",
+          "Marks": 87
+        }
+      },
+      {
+        "Row": 89,
+        "Errors": "Duplicate row, Invalid Email",
+        "Data": {
+          "ID": 3,
+          "Name": "Student 3",
+          "Email": "abc@@abc",
+          "Phone": "9876546048",
+          "Marks": 55
+        }
+      },
+      {
+        "Row": 99,
+        "Errors": "Invalid Email",
+        "Data": {
+          "ID": 15,
+          "Name": "Student 15",
+          "Email": "email.com",
+          "Phone": "9876538893",
+          "Marks": 68
+        }
+      }
+    ]
+  },
+  {
+    "id": "c895b30e",
+    "original_filename": "student_dataset (1).csv",
+    "uploaded_at": "2025-10-05T03:37:32.029637Z",
+    "report_path": "C:\\Users\\shrut\\Desktop\\Data_Validator\\reports\\report_c895b30e.xlsx",
+    "clean_path": "C:\\Users\\shrut\\Desktop\\Data_Validator\\reports\\clean_c895b30e.xlsx",
+    "rules": [
+      "name",
+      "email",
+      "phone",
+      "marks",
+      "duplicates"
+    ],
+    "summary": {
+      "total": 100,
+      "valid": 83,
+      "invalid": 17
+    },
+    "errors": [
+      {
+        "Row": 7,
+        "Errors": "Invalid Phone",
+        "Data": {
+          "ID": 40,
+          "Name": "Student 40",
+          "Email": "student40@example.com",
+          "Phone": "abcd",
+          "Marks": 69
+        }
+      },
+      {
+        "Row": 10,
+        "Errors": "Invalid Phone",
+        "Data": {
+          "ID": 11,
+          "Name": "Student 11",
+          "Email": "student11@example.com",
+          "Phone": "123",
+          "Marks": 41
+        }
+      },
+      {
+        "Row": 13,
+        "Errors": "Invalid Phone",
+        "Data": {
+          "ID": 31,
+          "Name": "Student 31",
+          "Email": "student31@example.com",
+          "Phone": NaN,
+          "Marks": 58
+        }
+      },
+      {
+        "Row": 18,
+        "Errors": "Invalid Email",
+        "Data": {
+          "ID": 77,
+          "Name": "Student 77",
+          "Email": "invalidemail",
+          "Phone": "9876592240",
+          "Marks": 50
+        }
+      },
+      {
+        "Row": 31,
+        "Errors": "Invalid Phone",
+        "Data": {
+          "ID": 73,
+          "Name": "Student 73",
+          "Email": "student73@example.com",
+          "Phone": "phone",
+          "Marks": 72
+        }
+      },
+      {
+        "Row": 36,
+        "Errors": "Invalid Phone",
+        "Data": {
+          "ID": 94,
+          "Name": "Student 94",
+          "Email": "student94@example.com",
+          "Phone": "0000",
+          "Marks": 95
+        }
+      },
+      {
+        "Row": 44,
+        "Errors": "Invalid Phone",
+        "Data": {
+          "ID": 8,
+          "Name": "Student 8",
+          "Email": "student8@example.com",
+          "Phone": "999",
+          "Marks": 41
+        }
+      },
+      {
+        "Row": 45,
+        "Errors": "Duplicate row",
+        "Data": {
+          "ID": 1,
+          "Name": NaN,
+          "Email": "student1@example.com",
+          "Phone": "9876593810",
+          "Marks": 47
+        }
+      },
+      {
+        "Row": 50,
+        "Errors": "Invalid Email",
+        "Data": {
+          "ID": 63,
+          "Name": "Student 63",
+          "Email": "noatsign.com",
+          "Phone": "9876595909",
+          "Marks": 71
+        }
+      },
+      {
+        "Row": 63,
+        "Errors": "Duplicate row",
+        "Data": {
+          "ID": 5,
+          "Name": "Student 5",
+          "Email": "student5@example.com",
+          "Phone": "9876523434",
+          "Marks": 83
+        }
+      },
+      {
+        "Row": 68,
+        "Errors": "Invalid Phone",
+        "Data": {
+          "ID": 47,
+          "Name": "Student 47",
+          "Email": "student47@example.com",
+          "Phone": "12345",
+          "Marks": 78
+        }
+      },
+      {
+        "Row": 71,
+        "Errors": "Invalid Email",
+        "Data": {
+          "ID": 3,
+          "Name": "Student 3",
+          "Email": "abc@@abc",
+          "Phone": "9876546048",
+          "Marks": 55
+        }
+      },
+      {
+        "Row": 73,
+        "Errors": "Invalid Email",
+        "Data": {
+          "ID": 42,
+          "Name": "Student 42",
+          "Email": "test@",
+          "Phone": "9876557819",
+          "Marks": 50
+        }
+      },
+      {
+        "Row": 76,
+        "Errors": "Duplicate row",
+        "Data": {
+          "ID": 4,
+          "Name": "Student 4",
+          "Email": "student4@example.com",
+          "Phone": "9876539256",
+          "Marks": 48
+        }
+      },
+      {
+        "Row": 86,
+        "Errors": "Duplicate row",
+        "Data": {
+          "ID": 2,
+          "Name": "Student 2",
+          "Email": "student2@example.com",
+          "Phone": "9876513278",
+          "Marks": 87
+        }
+      },
+      {
+        "Row": 89,
+        "Errors": "Duplicate row, Invalid Email",
+        "Data": {
+          "ID": 3,
+          "Name": "Student 3",
+          "Email": "abc@@abc",
+          "Phone": "9876546048",
+          "Marks": 55
+        }
+      },
+      {
+        "Row": 99,
+        "Errors": "Invalid Email",
+        "Data": {
+          "ID": 15,
+          "Name": "Student 15",
+          "Email": "email.com",
+          "Phone": "9876538893",
+          "Marks": 68
+        }
+      }
+    ]
+  },
+  {
+    "id": "3882474b",
+    "original_filename": "student_dataset.csv",
+    "uploaded_at": "2025-10-02T13:54:14.482903Z",
+    "report_path": "C:\\Users\\shrut\\Desktop\\Data_Validator\\reports\\report_3882474b.xlsx",
+    "clean_path": "C:\\Users\\shrut\\Desktop\\Data_Validator\\reports\\clean_3882474b.xlsx",
+    "rules": [
+      "missing",
+      "duplicates",
+      "types"
+    ],
+    "summary": {
+      "total": 100,
+      "valid": 84,
+      "invalid": 16
+    }
+  },
+  {
+    "id": "ed484c7c",
+    "original_filename": "report_ae569314.xlsx",
+    "uploaded_at": "2025-10-01T17:52:50.702823Z",
+    "report_path": "C:\\Users\\shrut\\Desktop\\Data_Validator\\reports\\report_ed484c7c.xlsx",
+    "clean_path": "C:\\Users\\shrut\\Desktop\\Data_Validator\\reports\\clean_ed484c7c.xlsx",
+    "rules": [
+      "missing",
+      "duplicates",
+      "types"
+    ],
+    "summary": {
+      "total": 1,
+      "valid": 1,
+      "invalid": 0
+    }
+  },
+  {
+    "id": "8eabb48f",
+    "original_filename": "Admission Chance.csv",
+    "uploaded_at": "2025-09-28T14:47:16.136742Z",
+    "report_path": "C:\\Users\\shrut\\Desktop\\Data_Validator\\reports\\report_8eabb48f.xlsx",
+    "clean_path": "C:\\Users\\shrut\\Desktop\\Data_Validator\\reports\\clean_8eabb48f.xlsx",
+    "rules": [
+      "missing",
+      "duplicates"
+    ],
+    "summary": {
+      "total": 400,
+      "valid": 400,
+      "invalid": 0
+    }
+  },
+  {
+    "id": "d8b932c0",
+    "original_filename": "Dataset .csv",
+    "uploaded_at": "2025-09-28T14:12:33.002646Z",
+    "report_path": "C:\\Users\\shrut\\Desktop\\Data_Validator\\reports\\report_d8b932c0.xlsx",
+    "clean_path": "C:\\Users\\shrut\\Desktop\\Data_Validator\\reports\\clean_d8b932c0.xlsx",
+    "rules": [
+      "name",
+      "email",
+      "phone",
+      "marks",
+      "duplicates"
+    ],
+    "summary": {
+      "total": 9551,
+      "valid": 9551,
+      "invalid": 0
+    }
+  },
+  {
+    "id": "a5d34178",
+    "original_filename": "NNDSS_-_TABLE_1JJ._Tularemia_to__Vancomycin-intermediate_Staphylococcus_aureus.csv",
+    "uploaded_at": "2025-09-28T11:44:15.939430Z",
+    "report_path": "C:\\Users\\shrut\\Desktop\\Data_Validator\\reports\\report_a5d34178.xlsx",
+    "clean_path": "C:\\Users\\shrut\\Desktop\\Data_Validator\\reports\\clean_a5d34178.xlsx",
+    "rules": [
+      "name",
+      "email",
+      "phone",
+      "marks",
+      "duplicates"
+    ],
+    "summary": {
+      "total": 1470,
+      "valid": 1470,
+      "invalid": 0
+    }
+  },
+  {
+    "id": "6c35b4e3",
+    "original_filename": "new.csv",
+    "uploaded_at": "2025-09-28T10:54:15.030089Z",
+    "report_path": "C:\\Users\\shrut\\Desktop\\Data_Validator\\reports\\report_6c35b4e3.xlsx",
+    "clean_path": "C:\\Users\\shrut\\Desktop\\Data_Validator\\reports\\clean_6c35b4e3.xlsx",
+    "rules": [
+      "name",
+      "email",
+      "phone",
+      "marks",
+      "duplicates"
+    ],
+    "summary": {
+      "total": 5,
+      "valid": 1,
+      "invalid": 4
+    }
+  },
+  {
+    "id": "4a14ec0e",
+    "original_filename": "clean_a1a9ea8b.xlsx",
+    "uploaded_at": "2025-09-28T10:53:06.570139Z",
+    "report_path": "C:\\Users\\shrut\\Desktop\\Data_Validator\\reports\\report_4a14ec0e.xlsx",
+    "clean_path": "C:\\Users\\shrut\\Desktop\\Data_Validator\\reports\\clean_4a14ec0e.xlsx",
+    "rules": [
+      "name",
+      "email",
+      "phone",
+      "marks",
+      "duplicates"
+    ],
+    "summary": {
+      "total": 8,
+      "valid": 8,
+      "invalid": 0
+    }
+  },
+  {
+    "id": "728d0766",
+    "original_filename": "report_a1a9ea8b.xlsx",
+    "uploaded_at": "2025-09-28T10:25:19.512086Z",
+    "report_path": "C:\\Users\\shrut\\Desktop\\Data_Validator\\reports\\report_728d0766.xlsx",
+    "clean_path": "C:\\Users\\shrut\\Desktop\\Data_Validator\\reports\\clean_728d0766.xlsx",
+    "rules": [
+      "name",
+      "email",
+      "phone",
+      "marks",
+      "duplicates"
+    ],
+    "summary": {
+      "total": 1,
+      "valid": 1,
+      "invalid": 0
+    }
+  },
+  {
+    "id": "d317629a",
+    "original_filename": "new.csv",
+    "uploaded_at": "2025-09-28T10:17:15.937264Z",
+    "report_path": "C:\\Users\\shrut\\Desktop\\Data_Validator\\reports\\report_d317629a.xlsx",
+    "clean_path": "C:\\Users\\shrut\\Desktop\\Data_Validator\\reports\\clean_d317629a.xlsx",
+    "rules": [
+      "name",
+      "email",
+      "phone",
+      "marks",
+      "duplicates"
+    ],
+    "summary": {
+      "total": 5,
+      "valid": 1,
+      "invalid": 4
+    }
+  },
+  {
+    "id": "a1a9ea8b",
+    "original_filename": "Scheduled Sessions.csv",
+    "uploaded_at": "2025-09-28T09:54:42.180759Z",
+    "report_path": "C:\\Users\\shrut\\Desktop\\Data_Validator\\reports\\report_a1a9ea8b.xlsx",
+    "clean_path": "C:\\Users\\shrut\\Desktop\\Data_Validator\\reports\\clean_a1a9ea8b.xlsx",
+    "rules": [
+      "name",
+      "email",
+      "phone",
+      "marks",
+      "duplicates"
+    ],
+    "summary": {
+      "total": 8,
+      "valid": 8,
+      "invalid": 0
+    }
+  },
+  {
+    "id": "82336c8e",
+    "original_filename": "Dataset  (1).csv",
+    "uploaded_at": "2025-09-28T09:39:54.127790Z",
+    "report_path": "C:\\Users\\shrut\\Desktop\\Data_Validator\\reports\\report_82336c8e.xlsx",
+    "clean_path": "C:\\Users\\shrut\\Desktop\\Data_Validator\\reports\\clean_82336c8e.xlsx",
+    "rules": [
+      "name",
+      "email",
+      "phone",
+      "marks",
+      "duplicates"
+    ],
+    "summary": {
+      "total": 9551,
+      "valid": 9551,
+      "invalid": 0
+    }
+  }
+]

@@ -1,58 +1,95 @@
 import pandas as pd
 import re
 
-def validate_file(filepath):
-    # Load file depending on extension
-    df = pd.read_excel(filepath) if filepath.endswith(".xlsx") else pd.read_csv(filepath)
-    
+EMAIL_RE = re.compile(r"[^@]+@[^@]+\.[^@]+")
+
+
+def _is_valid_email(email):
+    if not email or pd.isna(email):
+        return False
+    return bool(EMAIL_RE.match(str(email).strip()))
+
+
+def _is_valid_phone(phone):
+    if pd.isna(phone) or phone is None:
+        return False
+    s = str(phone).strip()
+    s_digits = ''.join(ch for ch in s if ch.isdigit())
+    return len(s_digits) == 10
+
+
+def validate_file(filepath, rules=None):
+    """
+    rules: list of strings among: ["name", "email", "phone", "marks", "duplicates"]
+    returns dict: { errors: [...], clean_data: [...], total: int }
+    """
+    if rules is None:
+        rules = []
+
+    ext = filepath.rsplit('.', 1)[-1].lower()
+    # read file defensively
+    if ext == 'xlsx':
+        df = pd.read_excel(filepath, engine="openpyxl")
+    else:
+        df = pd.read_csv(filepath)
+
+    # Ensure df is a DataFrame
+    if df is None:
+        df = pd.DataFrame()
+
+    df = df.copy()
+    total = len(df)
+
+    dup_mask = None
+    if 'duplicates' in rules and total > 0:
+        dup_mask = df.duplicated(keep='first')
+
     errors = []
     clean_rows = []
-    seen_rows = set()  # for duplicate detection
 
     for idx, row in df.iterrows():
         row_errors = []
 
-        # 1. Name validation (not empty)
-        if "Name" in df.columns and pd.isna(row.get("Name", "")):
-            row_errors.append("Missing Name")
+        # Name
+        if 'name' in rules and 'Name' in df.columns:
+            if pd.isna(row.get('Name', '')) or str(row.get('Name', '')).strip() == '':
+                row_errors.append('Missing Name')
 
-        # 2. Email validation (simple check: must contain @ and end with .com)
-        if "Email" in df.columns:
-            email = str(row.get("Email", ""))
-            if not re.match(r"[^@]+@[^@]+\.[^@]+", email):
-                row_errors.append("Invalid Email")
+        # Email
+        if 'email' in rules and 'Email' in df.columns:
+            if not _is_valid_email(row.get('Email')):
+                row_errors.append('Invalid Email')
 
-        # 3. Phone validation (must be 10 digits)
-        if "Phone" in df.columns:
-            phone = str(row.get("Phone", ""))
-            if not phone.isdigit() or len(phone) != 10:
-                row_errors.append("Invalid Phone Number")
+        # Phone
+        if 'phone' in rules and 'Phone' in df.columns:
+            if not _is_valid_phone(row.get('Phone')):
+                row_errors.append('Invalid Phone Number')
 
-        # 4. Marks validation (0–100 range)
-        if "Marks" in df.columns:
-            marks = row.get("Marks")
-            if pd.isna(marks) or not (0 <= marks <= 100):
-                row_errors.append("Marks out of range")
+        # Marks
+        if 'marks' in rules and 'Marks' in df.columns:
+            try:
+                m = pd.to_numeric(row.get('Marks'), errors='coerce')
+                if pd.isna(m) or not (0 <= m <= 100):
+                    row_errors.append('Marks out of range')
+            except Exception:
+                row_errors.append('Marks invalid')
 
-        # 5. Duplicate row check (using tuple of row values)
-        row_tuple = tuple(row.values)
-        if row_tuple in seen_rows:
-            row_errors.append("Duplicate Row")
-        else:
-            seen_rows.add(row_tuple)
+        # Duplicate
+        if 'duplicates' in rules and dup_mask is not None:
+            if dup_mask.iloc[idx]:
+                row_errors.append('Duplicate Row')
 
-        # Collect results
         if row_errors:
             errors.append({
-                "Row": idx + 2,   # +2 because Excel has header row
-                "Errors": ", ".join(row_errors),
-                "Data": row.to_dict()
+                'Row': idx + 2,
+                'Errors': ', '.join(row_errors),
+                'Data': row.to_dict()
             })
         else:
             clean_rows.append(row.to_dict())
 
     return {
-        "errors": errors,
-        "clean_data": clean_rows,
-        "total": len(df)
+        'errors': errors,
+        'clean_data': clean_rows,
+        'total': total
     }

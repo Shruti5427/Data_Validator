@@ -1,0 +1,192 @@
+openapi: 3.0.3
+info:
+  title: Data Validator API
+  description: |
+    The **Data Validator API** allows users to upload CSV/XLSX datasets,
+    perform automated data validation (email, phone, marks, duplicates, etc.),
+    and download structured reports (clean and error datasets).
+
+    This API is built with Flask, Pandas, and Openpyxl, designed to improve
+    data quality in DataOps workflows.
+  version: 1.0.0
+  contact:
+    name: Data Validator Team
+    email: support@datavalidator.ai
+
+servers:
+  - url: http://localhost:5000
+    description: Local development server
+
+paths:
+  /:
+    get:
+      summary: Render Home Page
+      description: Returns the upload interface for the Data Validator system.
+      responses:
+        '200':
+          description: HTML page rendered successfully
+          content:
+            text/html:
+              schema:
+                type: string
+
+  /upload:
+    post:
+      summary: Upload and Validate File
+      description: |
+        Uploads a CSV or XLSX file and validates it according to selected rules.
+        Generates two reports:
+        - **Error Report:** Contains invalid rows and detailed issues.
+        - **Clean Report:** Contains only valid rows.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: CSV/XLSX file to validate
+                rules:
+                  type: array
+                  items:
+                    type: string
+                  example: ["name", "email", "phone", "marks", "duplicates"]
+      responses:
+        '200':
+          description: Validation successful — returns summary page
+          content:
+            text/html:
+              schema:
+                type: string
+              example: |
+                ✅ Report Generated Successfully!
+                Total Rows: 100
+                Valid Rows: 73
+                Invalid Rows: 27
+        '400':
+          description: Bad Request — Invalid or missing file
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Unsupported file type"
+        '500':
+          description: Internal Server Error — Processing or report generation failed
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Error while processing: Missing column headers"
+
+  /download/{report_id}:
+    get:
+      summary: Download Full Validation Report
+      description: Downloads the full Excel report containing all rows with validation errors highlighted.
+      parameters:
+        - name: report_id
+          in: path
+          required: true
+          schema:
+            type: string
+          example: b39a8f1a
+      responses:
+        '200':
+          description: Excel report downloaded successfully
+          content:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                type: string
+                format: binary
+        '404':
+          description: Report not found
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Report not found"
+
+  /download_clean/{report_id}:
+    get:
+      summary: Download Clean Data Report
+      description: Downloads the cleaned dataset containing only valid rows after validation.
+      parameters:
+        - name: report_id
+          in: path
+          required: true
+          schema:
+            type: string
+          example: b39a8f1a
+      responses:
+        '200':
+          description: Clean Excel report downloaded successfully
+          content:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                type: string
+                format: binary
+        '404':
+          description: Clean report not found
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Clean report not found"
+
+components:
+  schemas:
+    ValidationResult:
+      type: object
+      properties:
+        id:
+          type: string
+          example: b39a8f1a
+        original_filename:
+          type: string
+          example: students.xlsx
+        uploaded_at:
+          type: string
+          format: date-time
+          example: 2025-10-08T12:44:12Z
+        rules:
+          type: array
+          items:
+            type: string
+          example: ["name", "email", "phone", "marks"]
+        summary:
+          type: object
+          properties:
+            total:
+              type: integer
+              example: 100
+            valid:
+              type: integer
+              example: 73
+            invalid:
+              type: integer
+              example: 27
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              Row:
+                type: integer
+                example: 5
+              Errors:
+                type: string
+                example: "Invalid Email Format"
+
+  responses:
+    NotFound:
+      description: Resource not found
+    ServerError:
+      description: Internal server error
+
+tags:
+  - name: Upload & Validation
+    description: File upload, data validation, and report generation
+  - name: Download Reports
+    description: Download clean and full Excel reports
