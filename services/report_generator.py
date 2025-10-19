@@ -1,6 +1,7 @@
+"""Png module to generate validation reports in Excel format."""
 import pandas as pd
 
-
+"""Generate an Excel report from validation results."""
 def generate_report(validation_result, report_path, clean_only_path=None):
     # Full report (Summary, Invalid Rows, Clean Data)
     with pd.ExcelWriter(report_path, engine='openpyxl') as writer:
