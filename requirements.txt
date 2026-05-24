@@ -4,3 +4,4 @@ openpyxl
 werkzeug
 python-dateutil
 waitress
+gunicorn
