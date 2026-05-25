@@ -5,9 +5,10 @@ from datetime import datetime
 from flask import Flask, request, send_from_directory, render_template, jsonify, url_for
 from services.validator import validate_file
 from services.report_generator import generate_report
-from utils.file_handler import save_uploaded_file, allowed_file 
+from utils.file_handler import save_uploaded_file, allowed_file
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+# BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = "/tmp"
 UPLOAD_FOLDER = os.path.join(BASE_DIR, "uploads")
 REPORT_FOLDER = os.path.join(BASE_DIR, "reports")
 METADATA_FILE = os.path.join(REPORT_FOLDER, "metadata.json")
@@ -47,7 +48,9 @@ def download_report(report_id):
     rec = next((r for r in records if r["id"] == report_id), None)
     if not rec:
         return "Report not found", 404
-    return send_from_directory(REPORT_FOLDER, os.path.basename(rec["report_path"]), as_attachment=True)
+    return send_from_directory(
+        REPORT_FOLDER, os.path.basename(rec["report_path"]), as_attachment=True
+    )
 
 
 @app.route("/download_clean/<report_id>")
@@ -56,7 +59,9 @@ def download_clean(report_id):
     rec = next((r for r in records if r["id"] == report_id), None)
     if not rec:
         return "Clean report not found", 404
-    return send_from_directory(REPORT_FOLDER, os.path.basename(rec["clean_path"]), as_attachment=True)
+    return send_from_directory(
+        REPORT_FOLDER, os.path.basename(rec["clean_path"]), as_attachment=True
+    )
 
 
 # ------------------ Upload Route ------------------
@@ -64,7 +69,7 @@ def download_clean(report_id):
 def simple_upload():
     if "file" not in request.files:
         return "No file uploaded", 400
-    
+
     file = request.files["file"]
     if file.filename == "":
         return "Empty filename", 400
@@ -79,7 +84,9 @@ def simple_upload():
 
     # Save uploaded file
     try:
-        saved_path, original_name = save_uploaded_file(file, app.config.get("UPLOAD_FOLDER"))
+        saved_path, original_name = save_uploaded_file(
+            file, app.config.get("UPLOAD_FOLDER")
+        )
         validation_result = validate_file(saved_path, rules)
     except Exception as e:
         return f"Error while processing: {e}", 500
@@ -108,12 +115,12 @@ def simple_upload():
             "valid": len(validation_result.get("clean_data", [])),
             "invalid": len(validation_result.get("errors", [])),
         },
-        "errors": validation_result.get("errors", [])
+        "errors": validation_result.get("errors", []),
     }
     records.insert(0, record)
     save_metadata(records)
 
-   #  Build dynamic HTML with inline error summary
+    #  Build dynamic HTML with inline error summary
     error_html = ""
     errors = validation_result.get("errors", [])
     if errors:
@@ -443,3 +450,7 @@ themeToggle.addEventListener('click', () => {{
 </body>
 </html>
 """
+
+
+if __name__ == "__main__":
+    app.run()
