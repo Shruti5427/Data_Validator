@@ -1,7 +1,10 @@
-flask
+Flask
+gunicorn
 pandas
 openpyxl
+xlsxwriter
+numpy
 werkzeug
 python-dateutil
 waitress
-gunicorn
+
